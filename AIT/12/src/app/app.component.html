@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <div class="container">
+    <br />
+    <h2>Product List</h2>
+    <div class="table-responsive">
+      <table class="table table-striped" *ngIf="products && products.length">
+        <thead class="thead-dark">
+          <tr>
+            <th>ProductID</th>
+            <th>ProductName</th>
+            <th>CategoryId</th>
+            <th>AvilableQty</th>
+            <th>ReorderQty</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let product of products">
+            <td>{{ product.ProductID }}</td>
+            <td>{{ product.ProductName }}</td>
+            <td>{{ product.CategoryId }}</td>
+            <td
+              [ngStyle]="{
+                'background-color':
+                  product.AvilableQty > product.ReorderQty ? '' : 'red'
+              }"
+            >
+              {{ product.AvilableQty }}
+            </td>
+            <td>{{ product.ReorderQty }}</td>
+          </tr>
+        </tbody>
+      </table>
+      <div></div>
+    </div>
+    <html></html>
+  </div>
+</html>
